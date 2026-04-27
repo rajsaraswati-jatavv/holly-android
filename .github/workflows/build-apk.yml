@@ -1,0 +1,94 @@
+name: Build Holly Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Download Vosk Model
+      run: |
+        mkdir -p app/src/main/assets/model
+        wget -q --show-progress -O vosk-model.zip "https://alphacephei.com/vosk/models/vosk-model-small-en-in-0.4.zip"
+        unzip -q vosk-model.zip
+        mv vosk-model-small-en-in-0.4/* app/src/main/assets/model/
+        rm -rf vosk-model.zip vosk-model-small-en-in-0.4
+
+    - name: Download Llama Model (Placeholder)
+      run: |
+        mkdir -p app/src/main/assets/models
+        echo "LLM model placeholder - Add your model manually" > app/src/main/assets/models/README.txt
+
+    - name: Create Wake Word Placeholder
+      run: |
+        mkdir -p app/src/main/assets/wakewords
+        echo "Wake word file placeholder - Get from Picovoice Console" > app/src/main/assets/wakewords/README.txt
+
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --no-daemon
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease --no-daemon
+
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: holly-debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: holly-release-apk
+        path: app/build/outputs/apk/release/app-release.apk
+
+    - name: Create Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: Holly Android v1.0.${{ github.run_number }}
+        files: |
+          app/build/outputs/apk/debug/app-debug.apk
+          app/build/outputs/apk/release/app-release.apk
+        body: |
+          # Holly Android Voice Assistant
+          
+          ## Features
+          - 🎤 Wake Word Detection ("Hey Holly")
+          - 💬 Offline Speech Recognition (Hindi/English)
+          - 💕 Girlfriend Personality with Local LLM
+          - 🔧 Full System Control via Accessibility
+          - 🔒 100% Offline Privacy
+          
+          ## Installation
+          1. Download the APK
+          2. Enable "Install from unknown sources"
+          3. Install and grant all permissions
+          
+          **Made with ❤️ for RS**
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

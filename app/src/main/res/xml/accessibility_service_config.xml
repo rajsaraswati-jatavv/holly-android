@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:settingsActivity="com.holly.assistant.ui.settings.SettingsActivity"
+    android:description="@string/accessibility_service_description">
+    
+    <meta-data
+        android:name="android.accessibilityservice.AccessibilityService"
+        android:resource="@xml/accessibility_service_config" />
+</accessibility-service>

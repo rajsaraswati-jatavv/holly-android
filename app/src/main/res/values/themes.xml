@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HollyAssistant" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/holly_pink</item>
+        <item name="colorPrimaryDark">@color/holly_dark</item>
+        <item name="colorSecondary">@color/holly_purple</item>
+        <item name="colorAccent">@color/holly_pink</item>
+        <item name="android:statusBarColor">@color/holly_dark</item>
+        <item name="android:navigationBarColor">@color/holly_dark</item>
+        <item name="android:windowBackground">@color/holly_dark</item>
+    </style>
+    
+    <style name="Theme.HollyAssistant.Splash" parent="Theme.HollyAssistant">
+        <item name="android:windowBackground">@color/holly_dark</item>
+    </style>
+</resources>

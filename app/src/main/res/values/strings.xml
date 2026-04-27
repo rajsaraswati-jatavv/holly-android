@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Holly Assistant</string>
+    
+    <!-- Notifications -->
+    <string name="notification_title">Holly is Active</string>
+    <string name="notification_text_ready">Say "Hey Holly" to start</string>
+    <string name="notification_text_listening">Listening…</string>
+    <string name="notification_text_processing">Processing command…</string>
+    
+    <!-- Channels -->
+    <string name="channel_voice_service">Voice Service</string>
+    <string name="channel_voice_service_desc">Holly voice assistant service notification</string>
+    <string name="channel_commands">Commands</string>
+    <string name="channel_commands_desc">Command execution notifications</string>
+    <string name="channel_alerts">Alerts</string>
+    <string name="channel_alerts_desc">Important alerts and reminders</string>
+    
+    <!-- Device Admin -->
+    <string name="device_admin_enabled">Holly has device admin access</string>
+    <string name="device_admin_disabled">Holly device admin disabled</string>
+    
+    <!-- Permissions -->
+    <string name="permission_microphone">Microphone access is required for voice commands</string>
+    <string name="permission_accessibility">Accessibility service is required for app control</string>
+    
+    <!-- Setup -->
+    <string name="setup_welcome">Welcome to Holly!</string>
+    <string name="setup_permissions">Grant Permissions</string>
+    <string name="setup_customize">Customize</string>
+    <string name="setup_complete">Setup Complete!</string>
+    
+    <!-- Commands -->
+    <string name="command_executed">Command executed</string>
+    <string name="command_failed">Command failed</string>
+    <string name="command_not_recognized">Command not recognized</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">
+        Holly needs accessibility service to:
+        • Open and control apps
+        • Automate messaging (WhatsApp, etc.)
+        • Perform gestures (tap, swipe, scroll)
+        • Read screen content
+        • Execute voice commands
+        
+        Holly does not collect or share any data.
+    </string>
+</resources>
