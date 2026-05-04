@@ -229,7 +229,7 @@ fun SettingsScreen(
                 
                 SettingsInfo(
                     label = "Made with ❤️ for",
-                    value = "RS"
+                    value = "T3RMUXK1NG"
                 )
             }
             
