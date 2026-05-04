@@ -10,7 +10,7 @@
 [![Min SDK](https://img.shields.io/badge/Min%20SDK-26%20(Android%208.0)-orange)](https://developer.android.com)
 [![Target SDK](https://img.shields.io/badge/Target%20SDK-35%20(Android%2015)-blue)](https://developer.android.com)
 [![YouTube](https://img.shields.io/badge/YouTube-T3rmuxk1ng-red?logo=youtube)](https://youtube.com/@T3rmuxk1ng)
-[![Offline](https://img.shields.io/badge/Privacy-100%25%20Offline-brightgreen)](https://github.com/rajsaraswati-jatavv/holly-android)
+[![Offline](https://img.shields.io/badge/Privacy-100%25%20Offline-brightgreen)](https://github.com/T3RMUXK1NG/holly-android)
 
 *Built with 💚 by [T3rmuxk1ng](https://youtube.com/@T3rmuxk1ng)*
 
@@ -151,7 +151,7 @@ holly-android/
 
 ### Build from Source
 ```bash
-git clone https://github.com/rajsaraswati-jatavv/holly-android.git
+git clone https://github.com/T3RMUXK1NG/holly-android.git
 cd holly-android
 ./gradlew assembleDebug
 ```
